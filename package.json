@@ -1,0 +1,32 @@
+{
+	"name": "@arichardsmith/stdlib",
+	"version": "0.1.0",
+	"type": "module",
+	"description": "A personalised Typescript stdlib",
+	"exports": {
+		"./types": {
+			"dev": "./src/types.index.ts",
+			"types": "./dist/types.d.ts"
+		}
+	},
+	"scripts": {
+		"build": "tsup",
+		"fmt": "prettier --write .",
+		"test": "vitest run",
+		"test:watch": "vitest",
+		"test:coverage": "vitest run --coverage",
+		"test:types": "vitest run --typecheck src/**/*.test.d.ts"
+	},
+	"author": "Richard Smith",
+	"license": "ISC",
+	"private": true,
+	"packageManager": "pnpm@10.10.0",
+	"devDependencies": {
+		"@ianvs/prettier-plugin-sort-imports": "^4.4.1",
+		"prettier": "^3.5.3",
+		"tsup": "^8.5.0",
+		"tsx": "^4.19.4",
+		"typescript": "^5.8.3",
+		"vitest": "^3.1.3"
+	}
+}
