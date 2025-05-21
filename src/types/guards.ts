@@ -23,6 +23,19 @@ export function isUndefined(val: unknown): val is undefined {
 	return val === undefined;
 }
 
+export function isNullish(val: unknown): val is undefined | null {
+	return val === undefined || val === null;
+}
+
+/**
+ * A helper to remove null and undefined from a value's type.
+ *
+ * Especially handy when filtering arrays, which is why it gets it's own function.
+ */
+export function isNotNullish<T>(val: T | null | undefined): val is T {
+	return !isNullish(val);
+}
+
 export function isValidNumber(val: unknown): val is number {
 	return typeof val === "number" && !Number.isNaN(val);
 }
