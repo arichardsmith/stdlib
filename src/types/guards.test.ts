@@ -20,20 +20,6 @@ describe("isRecord", () => {
 		expect(g.isRecord(null)).toBe(false);
 	});
 
-	it.fails("returns false if an object has numeric keys", async () => {
-		const test: any = {};
-		test[1] = [1];
-		expect(g.isRecord(test)).toBe(false);
-	});
-
-	it.fails("returns false if an object has symbol keys", async () => {
-		const sym = Symbol("foo");
-		const test: any = {};
-		test[sym] = "foo";
-
-		expect(g.isRecord(test)).toBe(false);
-	});
-
 	it("returns false for arrays", async () => {
 		expect(g.isRecord([1, 2, 3])).toBe(false);
 	});

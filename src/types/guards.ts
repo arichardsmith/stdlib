@@ -7,10 +7,12 @@ export function isString(val: unknown): val is string {
 /**
  * Test if a value is an object
  *
- * **Note:** Currently returns true even if the object has numeric keys or symbol keys.
+ * **Note:** Returns true even if the object has number or symbol keys (despite the type).
+ * This is because number keys get converted to string and symbol keys aren't enumerable, making
+ * it both difficult to check and not that importent to include them in the type signature.
  */
-export function isRecord(val: unknown): val is Record<string, unknown> {
-	return isObject(val) && Object.keys(val).every(isString);
+export function isRecord<T extends Record<string, unknown>>(val: unknown): val is T {
+	return isObject(val);
 }
 
 export function isBoolean(val: unknown): val is boolean {
