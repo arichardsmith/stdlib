@@ -4,3 +4,4 @@ export * from "./autocomplete";
 export * from "./misc";
 export * from "./guards";
 export * from "./option";
+export * from "./result";
