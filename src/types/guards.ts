@@ -37,12 +37,20 @@ export function isNotNullish<T>(val: T | null | undefined): val is T {
 }
 
 export function isValidNumber(val: unknown): val is number {
-	return typeof val === "number" && !Number.isNaN(val);
+	return isNumber(val) && !Number.isNaN(val);
 }
 
 export function isInteger(val: unknown): val is number {
 	return isValidNumber(val) && val % 1 === 0;
 }
+
+/**
+ * Test if the value is a number, including NaN
+ */
+export function isNumber(val: unknown): val is number {
+	return typeof val === "number";
+}
+
 /**
  * Test if a value is an error, optionally of a specific type.
  * @param type class that extends Error
